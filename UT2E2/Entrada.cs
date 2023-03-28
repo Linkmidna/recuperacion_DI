@@ -30,7 +30,12 @@ namespace UT2E2
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
             tbNombre.Text = string.Empty;
-            dtpNacimiento.Value = DateTime.Parse();
+            dtpNacimiento.Value = DateTime.Parse("31/12/2000");
+            rbMasc.Checked = true;
+            cbDeportes.Checked = false;
+            cbLectura.Checked = false;
+            cbMusica.Checked = false;
+            cbOtras.Checked = false;
             cbSituacion.SelectedIndex = 0;
         }
         private void rButton_CheckedChanged(object sender, EventArgs e)
@@ -51,6 +56,30 @@ namespace UT2E2
             }
             tbOtras.Text = string.Empty;
             tbOtras.Enabled = false;
+        }
+
+        private Socio guardarSocio()
+        {
+            Socio socio = new Socio();
+            string aficiones = String.Empty;
+            if (tbNombre.Text.Equals(String.Empty))
+            {
+                socio = null;
+                return socio;
+            }
+            socio.nombre = tbNombre.Text;
+            socio.nacimiento = dtpNacimiento.Value.ToShortDateString();
+            socio.genero = genero;
+            if (cbDeportes.Checked) aficiones += "Deportes";
+            if (cbMusica.Checked) aficiones += "Musica";
+            if (cbLectura.Checked) aficiones += "Lectura";
+            if (cbOtras.Checked) aficiones += "Otras";
+            socio.aficiones = aficiones;
+            socio.otras = tbOtras.Text;
+            socio.situacion = cbSituacion.Text;
+
+
+            return socio;
         }
     }
 }
