@@ -9,3 +9,4 @@ C:\Users\Alumno\Desktop\recuperacion_DI\UT2E2\obj\Debug\UT2E2.csproj.GenerateRes
 C:\Users\Alumno\Desktop\recuperacion_DI\UT2E2\obj\Debug\UT2E2.csproj.CoreCompileInputs.cache
 C:\Users\Alumno\Desktop\recuperacion_DI\UT2E2\obj\Debug\UT2E2.exe
 C:\Users\Alumno\Desktop\recuperacion_DI\UT2E2\obj\Debug\UT2E2.pdb
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2E2\obj\Debug\UT2E2.Resumen.resources

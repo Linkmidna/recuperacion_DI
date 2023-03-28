@@ -125,6 +125,7 @@
             this.tbOtras.ReadOnly = true;
             this.tbOtras.Size = new System.Drawing.Size(161, 91);
             this.tbOtras.TabIndex = 8;
+            this.tbOtras.TabStop = false;
             // 
             // label9
             // 
@@ -153,6 +154,7 @@
             this.btnConfirmar.TabIndex = 11;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -162,6 +164,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // Resumen
             // 

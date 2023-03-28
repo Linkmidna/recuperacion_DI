@@ -24,19 +24,19 @@ namespace UT2E2
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-
+            Resumen res = new Resumen(guardarSocio());
+            if (res.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show("Se han guardado los datos","Guardado",MessageBoxButtons.OK);
+                reiniciarFormulario();
+                return;
+            }
+            MessageBox.Show("Se ha cancelado la operación", "Cancelado", MessageBoxButtons.OK);
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            tbNombre.Text = string.Empty;
-            dtpNacimiento.Value = DateTime.Parse("31/12/2000");
-            rbMasc.Checked = true;
-            cbDeportes.Checked = false;
-            cbLectura.Checked = false;
-            cbMusica.Checked = false;
-            cbOtras.Checked = false;
-            cbSituacion.SelectedIndex = 0;
+            reiniciarFormulario();
         }
         private void rButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -80,6 +80,18 @@ namespace UT2E2
 
 
             return socio;
+        }
+
+        private void reiniciarFormulario()
+        {
+            tbNombre.Text = string.Empty;
+            dtpNacimiento.Value = DateTime.Parse("31/12/2000");
+            rbMasc.Checked = true;
+            cbDeportes.Checked = false;
+            cbLectura.Checked = false;
+            cbMusica.Checked = false;
+            cbOtras.Checked = false;
+            cbSituacion.SelectedIndex = 0;
         }
     }
 }

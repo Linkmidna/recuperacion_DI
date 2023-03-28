@@ -1,0 +1,11 @@
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\bin\Debug\UT2_E3.exe.config
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\bin\Debug\UT2_E3.exe
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\bin\Debug\UT2_E3.pdb
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.csproj.AssemblyReference.cache
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.FormCalculadora.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.Properties.Resources.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.csproj.GenerateResource.cache
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.exe
+C:\Users\Alumno\Desktop\recuperacion_DI\UT2_E3\UT2_E3\obj\Debug\UT2_E3.pdb
