@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="App_UT2_09.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="App_UT2_09StoreContainer">
+    <EntitySet Name="Peliculas" EntityType="App_UT2_09.Store.Peliculas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Libros" EntityType="App_UT2_09.Store.Libros" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Peliculas">
+    <Key>
+      <PropertyRef Name="PeliculasId" />
+    </Key>
+    <Property Name="PeliculasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Anno" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="LibrosId" />
+    </Key>
+    <Property Name="LibrosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Anno" Type="int" Nullable="false" />
+    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+</Schema>

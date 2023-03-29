@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="App_UT2_09StoreContainer" CdmEntityContainer="Biblio">
+    <EntitySetMapping Name="Peliculas">
+      <EntityTypeMapping TypeName="IsTypeOf(App_UT2_09.Pelicula)">
+        <MappingFragment StoreEntitySet="Peliculas">
+          <ScalarProperty Name="PeliculasId" ColumnName="PeliculasId" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Anno" ColumnName="Anno" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="IsTypeOf(App_UT2_09.Libro)">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="LibrosId" ColumnName="LibrosId" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Anno" ColumnName="Anno" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
