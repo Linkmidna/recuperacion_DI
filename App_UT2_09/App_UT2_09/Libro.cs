@@ -17,6 +17,6 @@ namespace App_UT2_09
         public int LibrosId { get; set; }
         public string Titulo { get; set; }
         public int Anno { get; set; }
-        public string Genero { get; set; }
+        public string Autor { get; set; }
     }
 }

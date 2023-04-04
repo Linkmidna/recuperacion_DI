@@ -15,3 +15,6 @@ C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_
 C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.exe
 C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.pdb
 C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.ListaLibroFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.LibroFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.ListaPeliculaFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\App_UT2_09\App_UT2_09\obj\Debug\App_UT2_09.PeliculaFrm.resources

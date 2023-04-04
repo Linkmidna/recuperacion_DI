@@ -17,7 +17,7 @@
           <ScalarProperty Name="LibrosId" ColumnName="LibrosId" />
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="Anno" ColumnName="Anno" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -112,8 +112,17 @@
     <EmbeddedResource Include="Contenedor.resx">
       <DependentUpon>Contenedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LibroFrm.resx">
+      <DependentUpon>LibroFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListaLibroFrm.resx">
       <DependentUpon>ListaLibroFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPeliculaFrm.resx">
+      <DependentUpon>ListaPeliculaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeliculaFrm.resx">
+      <DependentUpon>PeliculaFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

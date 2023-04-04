@@ -25,7 +25,7 @@
     <Property Name="LibrosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Titulo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Anno" Type="int" Nullable="false" />
-    <Property Name="Genero" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Autor" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -51,7 +51,7 @@
           <Property Name="LibrosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Titulo" Type="String" Nullable="false" />
           <Property Name="Anno" Type="Int32" Nullable="false" />
-          <Property Name="Genero" Type="String" Nullable="false" />
+          <Property Name="Autor" Type="String" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -75,7 +75,7 @@
           <ScalarProperty Name="LibrosId" ColumnName="LibrosId" />
           <ScalarProperty Name="Titulo" ColumnName="Titulo" />
           <ScalarProperty Name="Anno" ColumnName="Anno" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -20,6 +20,6 @@
     <Property Name="LibrosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Titulo" Type="String" Nullable="false" />
     <Property Name="Anno" Type="Int32" Nullable="false" />
-    <Property Name="Genero" Type="String" Nullable="false" />
+    <Property Name="Autor" Type="String" Nullable="false" />
   </EntityType>
 </Schema>

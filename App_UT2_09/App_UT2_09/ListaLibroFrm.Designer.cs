@@ -100,26 +100,29 @@
             this.cmsiVer,
             this.cmsiBorrar});
             this.cmsLibros.Name = "cmsLibros";
-            this.cmsLibros.Size = new System.Drawing.Size(107, 70);
+            this.cmsLibros.Size = new System.Drawing.Size(181, 92);
             this.cmsLibros.Opening += new System.ComponentModel.CancelEventHandler(this.cmsLibros_Opening);
             // 
             // cmsiCrear
             // 
             this.cmsiCrear.Name = "cmsiCrear";
-            this.cmsiCrear.Size = new System.Drawing.Size(106, 22);
+            this.cmsiCrear.Size = new System.Drawing.Size(180, 22);
             this.cmsiCrear.Text = "Crear";
+            this.cmsiCrear.Click += new System.EventHandler(this.cmsiCrear_Click);
             // 
             // cmsiVer
             // 
             this.cmsiVer.Name = "cmsiVer";
-            this.cmsiVer.Size = new System.Drawing.Size(106, 22);
+            this.cmsiVer.Size = new System.Drawing.Size(180, 22);
             this.cmsiVer.Text = "Ver";
+            this.cmsiVer.Click += new System.EventHandler(this.cmsiVer_Click);
             // 
             // cmsiBorrar
             // 
             this.cmsiBorrar.Name = "cmsiBorrar";
-            this.cmsiBorrar.Size = new System.Drawing.Size(106, 22);
+            this.cmsiBorrar.Size = new System.Drawing.Size(180, 22);
             this.cmsiBorrar.Text = "Borrar";
+            this.cmsiBorrar.Click += new System.EventHandler(this.cmsiBorrar_Click);
             // 
             // ListaLibroFrm
             // 
