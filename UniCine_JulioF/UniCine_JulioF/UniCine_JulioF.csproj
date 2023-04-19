@@ -88,6 +88,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropiedadesPeliculasFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropiedadesPeliculasFrm.Designer.cs">
+      <DependentUpon>PropiedadesPeliculasFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropiedadesProyeccionesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropiedadesProyeccionesFrm.Designer.cs">
+      <DependentUpon>PropiedadesProyeccionesFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PropiedadesSesionesFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropiedadesSesionesFrm.Designer.cs">
+      <DependentUpon>PropiedadesSesionesFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proyeccion.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -118,6 +136,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PropiedadesSesionesFrm.resx">
+      <DependentUpon>PropiedadesSesionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SesionesFrm.resx">
+      <DependentUpon>SesionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Modelo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Modelo.Designer.cs</LastGenOutput>

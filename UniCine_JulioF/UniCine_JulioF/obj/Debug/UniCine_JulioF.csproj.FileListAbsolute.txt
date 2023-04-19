@@ -13,3 +13,6 @@ C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.csproj.CopyComplete
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.exe
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.pdb
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.ContenedorMDI.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.SesionesFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.PropiedadesSesionesFrm.resources

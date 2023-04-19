@@ -61,18 +61,21 @@
             this.peliculasToolStripMenuItem.Name = "peliculasToolStripMenuItem";
             this.peliculasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.peliculasToolStripMenuItem.Text = "Peliculas";
+            this.peliculasToolStripMenuItem.Click += new System.EventHandler(this.peliculasToolStripMenuItem_Click);
             // 
             // sesionesToolStripMenuItem
             // 
             this.sesionesToolStripMenuItem.Name = "sesionesToolStripMenuItem";
             this.sesionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sesionesToolStripMenuItem.Text = "Sesiones";
+            this.sesionesToolStripMenuItem.Click += new System.EventHandler(this.sesionesToolStripMenuItem_Click);
             // 
             // proyeccionesToolStripMenuItem
             // 
             this.proyeccionesToolStripMenuItem.Name = "proyeccionesToolStripMenuItem";
             this.proyeccionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.proyeccionesToolStripMenuItem.Text = "Proyecciones";
+            this.proyeccionesToolStripMenuItem.Click += new System.EventHandler(this.proyeccionesToolStripMenuItem_Click);
             // 
             // ContenedorMDI
             // 

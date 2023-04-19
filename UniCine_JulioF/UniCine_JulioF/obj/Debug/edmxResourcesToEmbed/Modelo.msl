@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="UniCineStoreContainer" CdmEntityContainer="UniCineEntities">
+  <EntityContainerMapping StorageEntityContainer="UniCineStoreContainer" CdmEntityContainer="UniCine">
     <EntitySetMapping Name="Peliculas">
-      <EntityTypeMapping TypeName="UniCine.Pelicula">
+      <EntityTypeMapping TypeName="UniCine_JulioF.Pelicula">
         <MappingFragment StoreEntitySet="Peliculas">
           <ScalarProperty Name="PeliculaId" ColumnName="PeliculaId" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -15,7 +15,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proyecciones">
-      <EntityTypeMapping TypeName="UniCine.Proyeccion">
+      <EntityTypeMapping TypeName="UniCine_JulioF.Proyeccion">
         <MappingFragment StoreEntitySet="Proyecciones">
           <ScalarProperty Name="PeliculaId" ColumnName="PeliculaId" />
           <ScalarProperty Name="SesionId" ColumnName="SesionId" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sesiones">
-      <EntityTypeMapping TypeName="UniCine.Sesion">
+      <EntityTypeMapping TypeName="UniCine_JulioF.Sesion">
         <MappingFragment StoreEntitySet="Sesiones">
           <ScalarProperty Name="SesionId" ColumnName="SesionId" />
           <ScalarProperty Name="Sala" ColumnName="Sala" />

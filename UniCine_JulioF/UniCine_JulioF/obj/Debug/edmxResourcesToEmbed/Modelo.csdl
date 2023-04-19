@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="UniCine" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="UniCine_JulioF" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Pelicula">
     <Key>
       <PropertyRef Name="PeliculaId" />
@@ -37,7 +37,7 @@
   </EntityType>
   <Association Name="FK_PeliculaProyeccion">
     <End Role="Peliculas" Type="Self.Pelicula" Multiplicity="1" />
-    <End Role="Proyecciones" Type="UniCine.Proyeccion" Multiplicity="*" />
+    <End Role="Proyecciones" Type="UniCine_JulioF.Proyeccion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Peliculas">
         <PropertyRef Name="PeliculaId" />
@@ -48,8 +48,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_SesionProyeccion">
-    <End Role="Sesiones" Type="UniCine.Sesion" Multiplicity="1" />
-    <End Role="Proyecciones" Type="UniCine.Proyeccion" Multiplicity="*" />
+    <End Role="Sesiones" Type="UniCine_JulioF.Sesion" Multiplicity="1" />
+    <End Role="Proyecciones" Type="UniCine_JulioF.Proyeccion" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sesiones">
         <PropertyRef Name="SesionId" />
@@ -59,10 +59,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="UniCineEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="UniCine" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Peliculas" EntityType="Self.Pelicula" />
-    <EntitySet Name="Proyecciones" EntityType="UniCine.Proyeccion" />
-    <EntitySet Name="Sesiones" EntityType="UniCine.Sesion" />
+    <EntitySet Name="Proyecciones" EntityType="UniCine_JulioF.Proyeccion" />
+    <EntitySet Name="Sesiones" EntityType="UniCine_JulioF.Sesion" />
     <AssociationSet Name="FK_PeliculaProyeccion" Association="Self.FK_PeliculaProyeccion">
       <End Role="Peliculas" EntitySet="Peliculas" />
       <End Role="Proyecciones" EntitySet="Proyecciones" />
