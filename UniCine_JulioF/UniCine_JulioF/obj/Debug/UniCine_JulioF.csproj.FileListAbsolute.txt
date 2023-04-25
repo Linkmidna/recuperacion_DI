@@ -16,3 +16,7 @@ C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.ContenedorMDI.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.SesionesFrm.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.PropiedadesSesionesFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.PeliculasFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.PropiedadesPeliculasFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.ProyeccionesFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.PropiedadesProyeccionesFrm.resources

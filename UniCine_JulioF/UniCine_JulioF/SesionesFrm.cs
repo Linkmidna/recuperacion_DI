@@ -45,6 +45,16 @@ namespace UniCine_JulioF
             Negocio.BorrarSesion((int)lvSesiones.SelectedItems[0].Tag);
             actualizarLista();
         }
+        private void cmsSesiones_Opening(object sender, CancelEventArgs e)
+        {
+            modificarToolStripMenuItem.Enabled = false;
+            borrarToolStripMenuItem.Enabled = false;
+            if (lvSesiones.SelectedItems.Count > 0)
+            {
+                modificarToolStripMenuItem.Enabled = true;
+                borrarToolStripMenuItem.Enabled = true;
+            }
+        }
 
         private void actualizarLista()
         {
@@ -84,5 +94,7 @@ namespace UniCine_JulioF
                 actualizarLista();
             }
         }
+
+
     }
 }

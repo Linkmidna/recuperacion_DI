@@ -12,9 +12,22 @@ namespace UniCine_JulioF
 {
     public partial class PropiedadesProyeccionesFrm : Form
     {
-        public PropiedadesProyeccionesFrm()
+        Proyeccion proyeccion;
+        public PropiedadesProyeccionesFrm(Proyeccion pro)
         {
             InitializeComponent();
+            InitializeComponent();
+            proyeccion = pro;
+            if (proyeccion.PeliculaId > 0)
+            {
+                rellenarCampos();
+            }
+        }
+        private void rellenarCampos()
+        {
+            txtSesion.Text = proyeccion.SesionId.ToString();
+            txtPelicula.Text = proyeccion.PeliculaId.ToString();
+            dtpInicio.Value = proyeccion.Inicio;
         }
     }
 }

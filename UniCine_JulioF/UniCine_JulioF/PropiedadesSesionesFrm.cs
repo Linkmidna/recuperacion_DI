@@ -17,18 +17,18 @@ namespace UniCine_JulioF
         {
             InitializeComponent();
             sesion = ses;
-            if(sesion.SesionId > 0)
+            if (sesion.SesionId > 0)
             {
-                rellenar();
+                rellenarCampos();
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
-                DialogResult = DialogResult.OK;
-                Close();
-            
+            guardarDatos();
+            DialogResult = DialogResult.OK;
+            Close();
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -37,19 +37,33 @@ namespace UniCine_JulioF
             Close();
         }
 
-        private void rellenar()
+        private void rellenarCampos()
         {
-            if (!sesion.Sala.Equals(string.Empty))
-            {
-                txtSala.Text = sesion.Sala;
-                txtDia.Text = sesion.DiaSemana;
-                dtpInicio.Value = sesion.Comienzo;
-                dtpFin.Value = sesion.FinMax;
-                txtPrecio.Text = sesion.Precio.ToString();
-                txtAforo.Text = sesion.Aforo.ToString();
-                
-            }
+
+            txtSala.Text = sesion.Sala;
+            txtDia.Text = sesion.DiaSemana;
+            dtpInicio.Value = sesion.Comienzo;
+            dtpFin.Value = sesion.FinMax;
+            txtPrecio.Text = sesion.Precio.ToString();
+            txtAforo.Text = sesion.Aforo.ToString();
+
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void guardarDatos()
+        {
+            sesion.Sala = txtSala.Text;
+            sesion.DiaSemana = txtDia.Text;
+            sesion.Comienzo = dtpInicio.Value;
+            sesion.FinMax = dtpFin.Value;
+            if (float.TryParse(txtPrecio.Text, out float result1))
+            {
+                sesion.Precio = result1;
+            }
+            if (int.TryParse(txtAforo.Text, out int result2))
+            {
+                sesion.Aforo = result2;
+            }
         }
     }
 }

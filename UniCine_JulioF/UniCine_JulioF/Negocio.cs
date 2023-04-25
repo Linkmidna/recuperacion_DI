@@ -16,7 +16,7 @@ namespace UniCine_JulioF
             bd = new UniCine();
         }
 
-        public static List<Pelicula> obtenerPeliculas()
+        public static List<Pelicula> ObtenerPeliculas()
         {
             return bd.Peliculas.ToList();
         }
@@ -29,7 +29,7 @@ namespace UniCine_JulioF
             bd.SaveChanges();
         }
 
-        public static Pelicula obtenerPelicula(int peliculaId)
+        public static Pelicula ObtenerPelicula(int peliculaId)
         {
             return bd.Peliculas.FirstOrDefault(x =>  x.PeliculaId == peliculaId);
         }

@@ -127,6 +127,9 @@
     <EmbeddedResource Include="ContenedorMDI.resx">
       <DependentUpon>ContenedorMDI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PeliculasFrm.resx">
+      <DependentUpon>PeliculasFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,8 +139,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PropiedadesPeliculasFrm.resx">
+      <DependentUpon>PropiedadesPeliculasFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropiedadesProyeccionesFrm.resx">
+      <DependentUpon>PropiedadesProyeccionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PropiedadesSesionesFrm.resx">
       <DependentUpon>PropiedadesSesionesFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProyeccionesFrm.resx">
+      <DependentUpon>ProyeccionesFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SesionesFrm.resx">
       <DependentUpon>SesionesFrm.cs</DependentUpon>
