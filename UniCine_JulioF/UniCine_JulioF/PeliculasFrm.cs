@@ -12,17 +12,20 @@ namespace UniCine_JulioF
 {
     public partial class PeliculasFrm : Form
     {
+        Negocio negocio;
         public PeliculasFrm()
         {
             InitializeComponent();
             actualizarLista();
+            negocio = new Negocio();
+
         }
 
         private void lvPeliculas_DoubleClick(object sender, EventArgs e)
         {
             if (lvPeliculas.SelectedItems.Count == 1)
             {
-                Pelicula pelicula = Negocio.ObtenerPelicula((int)lvPeliculas.SelectedItems[0].Tag);
+                Pelicula pelicula = negocio.ObtenerPelicula((int)lvPeliculas.SelectedItems[0].Tag);
                 abrirPropiedades(pelicula);
             }
         }
@@ -36,13 +39,13 @@ namespace UniCine_JulioF
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Pelicula pelicula = Negocio.ObtenerPelicula((int)lvPeliculas.SelectedItems[0].Tag);
+            Pelicula pelicula = negocio.ObtenerPelicula((int)lvPeliculas.SelectedItems[0].Tag);
             abrirPropiedades(pelicula);
         }
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Negocio.BorrarPelicula((int)lvPeliculas.SelectedItems[0].Tag);
+            negocio.BorrarPelicula((int)lvPeliculas.SelectedItems[0].Tag);
             actualizarLista();
         }
 
@@ -60,7 +63,7 @@ namespace UniCine_JulioF
         private void actualizarLista()
         {
             lvPeliculas.Items.Clear();
-            foreach (Pelicula p in Negocio.ObtenerPeliculas())
+            foreach (Pelicula p in negocio.ObtenerPeliculas())
             {
                 string[] lvItem = new string[6];
                 lvItem[0] = p.Nombre;
@@ -84,14 +87,14 @@ namespace UniCine_JulioF
             {
                 if (propiedades.ShowDialog() == DialogResult.OK)
                 {
-                    Negocio.CrearPelicula(pelicula);
+                    negocio.CrearPelicula(pelicula);
                     actualizarLista();
                 }
                 return;
             }
             if (propiedades.ShowDialog() == DialogResult.OK)
             {
-                Negocio.ModificarPelicula(pelicula);
+                negocio.ModificarPelicula(pelicula);
                 actualizarLista();
             }
         }

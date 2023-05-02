@@ -65,5 +65,30 @@ namespace UniCine_JulioF
                 sesion.Aforo = result2;
             }
         }
+
+        private void txtPrecio_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtPrecio.Text, out int result))
+            {
+                if (0 > result)
+                {
+                    txtPrecio.Text = 0.ToString();
+                }
+                return;
+            }
+        }
+
+        private void txtAforo_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtAforo.Text, out int result))
+            {
+                if (0 > result)
+                {
+                    txtAforo.Text = 0.ToString();
+                }
+                return;
+            }
+        }
     }
 }
+

@@ -55,6 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPeliculaFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarPeliculaFrm.Designer.cs">
+      <DependentUpon>BuscarPeliculaFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarSesionFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarSesionFrm.Designer.cs">
+      <DependentUpon>BuscarSesionFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContenedorMDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +136,13 @@
     <Compile Include="SesionesFrm.Designer.cs">
       <DependentUpon>SesionesFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UniCineException.cs" />
+    <EmbeddedResource Include="BuscarPeliculaFrm.resx">
+      <DependentUpon>BuscarPeliculaFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarSesionFrm.resx">
+      <DependentUpon>BuscarSesionFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContenedorMDI.resx">
       <DependentUpon>ContenedorMDI.cs</DependentUpon>
     </EmbeddedResource>

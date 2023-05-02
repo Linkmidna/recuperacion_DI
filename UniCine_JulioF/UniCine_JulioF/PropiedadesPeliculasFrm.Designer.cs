@@ -122,6 +122,7 @@
             this.txtDuracion.Name = "txtDuracion";
             this.txtDuracion.Size = new System.Drawing.Size(100, 20);
             this.txtDuracion.TabIndex = 7;
+            this.txtDuracion.TextChanged += new System.EventHandler(this.txtDuracion_TextChanged);
             // 
             // label5
             // 

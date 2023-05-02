@@ -134,6 +134,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 5;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
             // txtAforo
             // 
@@ -141,6 +142,7 @@
             this.txtAforo.Name = "txtAforo";
             this.txtAforo.Size = new System.Drawing.Size(100, 20);
             this.txtAforo.TabIndex = 6;
+            this.txtAforo.TextChanged += new System.EventHandler(this.txtAforo_TextChanged);
             // 
             // btnCancelar
             // 

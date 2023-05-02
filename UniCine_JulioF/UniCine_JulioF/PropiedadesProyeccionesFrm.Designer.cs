@@ -36,6 +36,10 @@
             this.txtPelicula = new System.Windows.Forms.TextBox();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnBuscarSesion = new System.Windows.Forms.Button();
+            this.btnBuscarPelicula = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -78,14 +82,14 @@
             // 
             this.txtSesion.Location = new System.Drawing.Point(81, 10);
             this.txtSesion.Name = "txtSesion";
-            this.txtSesion.Size = new System.Drawing.Size(100, 20);
+            this.txtSesion.Size = new System.Drawing.Size(146, 20);
             this.txtSesion.TabIndex = 4;
             // 
             // txtPelicula
             // 
             this.txtPelicula.Location = new System.Drawing.Point(81, 36);
             this.txtPelicula.Name = "txtPelicula";
-            this.txtPelicula.Size = new System.Drawing.Size(100, 20);
+            this.txtPelicula.Size = new System.Drawing.Size(146, 20);
             this.txtPelicula.TabIndex = 5;
             // 
             // dtpInicio
@@ -102,11 +106,56 @@
             this.dtpFin.Size = new System.Drawing.Size(200, 20);
             this.dtpFin.TabIndex = 7;
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(216, 128);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 8;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(135, 128);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarSesion
+            // 
+            this.btnBuscarSesion.Location = new System.Drawing.Point(233, 8);
+            this.btnBuscarSesion.Name = "btnBuscarSesion";
+            this.btnBuscarSesion.Size = new System.Drawing.Size(48, 23);
+            this.btnBuscarSesion.TabIndex = 10;
+            this.btnBuscarSesion.Text = "Buscar";
+            this.btnBuscarSesion.UseVisualStyleBackColor = true;
+            this.btnBuscarSesion.Click += new System.EventHandler(this.btnBuscarSesion_Click);
+            // 
+            // btnBuscarPelicula
+            // 
+            this.btnBuscarPelicula.Location = new System.Drawing.Point(233, 33);
+            this.btnBuscarPelicula.Name = "btnBuscarPelicula";
+            this.btnBuscarPelicula.Size = new System.Drawing.Size(48, 23);
+            this.btnBuscarPelicula.TabIndex = 11;
+            this.btnBuscarPelicula.Text = "Buscar";
+            this.btnBuscarPelicula.UseVisualStyleBackColor = true;
+            this.btnBuscarPelicula.Click += new System.EventHandler(this.btnBuscarPelicula_Click);
+            // 
             // PropiedadesProyeccionesFrm
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 136);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(303, 163);
+            this.Controls.Add(this.btnBuscarPelicula);
+            this.Controls.Add(this.btnBuscarSesion);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dtpFin);
             this.Controls.Add(this.dtpInicio);
             this.Controls.Add(this.txtPelicula);
@@ -116,7 +165,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PropiedadesProyeccionesFrm";
-            this.Text = "PropiedadesProyeccionesFrm";
+            this.Text = "Proyección";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +181,9 @@
         private System.Windows.Forms.TextBox txtPelicula;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.DateTimePicker dtpFin;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnBuscarSesion;
+        private System.Windows.Forms.Button btnBuscarPelicula;
     }
 }

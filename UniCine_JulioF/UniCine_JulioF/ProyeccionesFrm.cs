@@ -12,12 +12,14 @@ namespace UniCine_JulioF
 {
     public partial class ProyeccionesFrm : Form
     {
-
+        Negocio negocio;
 
         public ProyeccionesFrm()
         {
             InitializeComponent();
+            negocio = new Negocio();
             actualizarLista();
+            
         }
 
         private void lvProyecciones_DoubleClick(object sender, EventArgs e)
@@ -26,7 +28,7 @@ namespace UniCine_JulioF
             {
                 Dictionary<int, Object> dict= (Dictionary<int,Object>)lvProyecciones.SelectedItems[0].Tag;
 
-                Proyeccion proyeccion = Negocio.ObtenerProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
+                Proyeccion proyeccion = negocio.ObtenerProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
                 abrirPropiedades(proyeccion);
             }
         }
@@ -41,14 +43,14 @@ namespace UniCine_JulioF
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Dictionary<int, Object> dict = (Dictionary<int, Object>)lvProyecciones.SelectedItems[0].Tag;
-            Proyeccion proyeccion = Negocio.ObtenerProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
+            Proyeccion proyeccion = negocio.ObtenerProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
             abrirPropiedades(proyeccion);
         }
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Dictionary<int, Object> dict = (Dictionary<int, Object>)lvProyecciones.SelectedItems[0].Tag;
-            Negocio.BorrarProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
+            negocio.BorrarProyeccion((int)dict.ElementAt(0).Value, (int)dict.ElementAt(1).Value, (DateTime)dict.ElementAt(2).Value);
             actualizarLista();
         }
 
@@ -65,18 +67,18 @@ namespace UniCine_JulioF
         private void actualizarLista()
         {
             lvProyecciones.Items.Clear();
-            foreach (Proyeccion p in Negocio.ObenerProyecciones())
+            foreach (Proyeccion p in negocio.ObenerProyecciones())
             {
                 Dictionary<int, Object> dict = new Dictionary<int, Object>();
                 dict.Add(0, p.SesionId);
                 dict.Add(1, p.PeliculaId);
                 dict.Add(2, p.Inicio);
 
-                Sesion s = Negocio.ObtenerSesion(p.SesionId);
+                Sesion s = negocio.ObtenerSesion(p.SesionId);
 
                 string[] lvItem = new string[4];
                 lvItem[0] = s.Sala + ", " + s.DiaSemana + ", " + s.Comienzo.ToShortTimeString();
-                lvItem[1] = Negocio.ObtenerPelicula(p.PeliculaId).Nombre;
+                lvItem[1] = negocio.ObtenerPelicula(p.PeliculaId).Nombre;
                 lvItem[2] = p.Inicio.ToShortDateString();
                 if (p.Fin != null)
                 {
@@ -102,14 +104,14 @@ namespace UniCine_JulioF
             {
                 if (propiedades.ShowDialog() == DialogResult.OK)
                 {
-                    Negocio.CrearProyeccion(proyeccion);
+                    negocio.CrearProyeccion(proyeccion);
                     actualizarLista();
                 }
                 return;
             }
             if (propiedades.ShowDialog() == DialogResult.OK)
             {
-                Negocio.ModificarProyeccion(proyeccion);
+                negocio.ModificarProyeccion(proyeccion);
                 actualizarLista();
             }
         }

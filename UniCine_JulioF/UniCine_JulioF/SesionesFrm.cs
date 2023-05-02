@@ -12,17 +12,20 @@ namespace UniCine_JulioF
 {
     public partial class SesionesFrm : Form
     {
+        Negocio negocio;
         public SesionesFrm()
         {
             InitializeComponent();
             actualizarLista();
+            negocio = new Negocio();
+
         }
 
         private void lvSesiones_DoubleClick(object sender, EventArgs e)
         {
             if (lvSesiones.SelectedItems.Count == 1)
             {
-                Sesion sesion = Negocio.ObtenerSesion((int)lvSesiones.SelectedItems[0].Tag);
+                Sesion sesion = negocio.ObtenerSesion((int)lvSesiones.SelectedItems[0].Tag);
                 abrirPropiedades(sesion);
             }
         }
@@ -36,13 +39,13 @@ namespace UniCine_JulioF
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Sesion sesion = Negocio.ObtenerSesion((int)lvSesiones.SelectedItems[0].Tag);
+            Sesion sesion = negocio.ObtenerSesion((int)lvSesiones.SelectedItems[0].Tag);
             abrirPropiedades(sesion);
         }
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Negocio.BorrarSesion((int)lvSesiones.SelectedItems[0].Tag);
+            negocio.BorrarSesion((int)lvSesiones.SelectedItems[0].Tag);
             actualizarLista();
         }
         private void cmsSesiones_Opening(object sender, CancelEventArgs e)
@@ -59,7 +62,7 @@ namespace UniCine_JulioF
         private void actualizarLista()
         {
             lvSesiones.Items.Clear();
-            foreach (Sesion s in Negocio.ObtenerSesiones())
+            foreach (Sesion s in negocio.ObtenerSesiones())
             {
                 string[] lvItem = new string[6];
                 lvItem[0] = s.Sala;
@@ -83,14 +86,14 @@ namespace UniCine_JulioF
             {
                 if (propiedades.ShowDialog() == DialogResult.OK)
                 {
-                    Negocio.CrearSesion(sesion);
+                    negocio.CrearSesion(sesion);
                     actualizarLista();
                 }
                 return;
             }
             if (propiedades.ShowDialog() == DialogResult.OK)
             {
-                Negocio.ModificarSesion(sesion);
+                negocio.ModificarSesion(sesion);
                 actualizarLista();
             }
         }

@@ -65,5 +65,21 @@ namespace UniCine_JulioF
             }
             pelicula.Sinopsis = txtSinopsis.Text;
         }
+
+        private void txtDuracion_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtDuracion.Text, out int result))
+            {
+                 if (result > 300)
+                 {
+                    txtDuracion.Text = 300.ToString();
+                 }
+                if (0 > result)
+                {
+                    txtDuracion.Text = 0.ToString();
+                }
+                return;
+            }
+        }
     }
 }
