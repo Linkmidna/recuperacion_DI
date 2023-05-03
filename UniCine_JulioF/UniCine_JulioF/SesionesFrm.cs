@@ -16,9 +16,8 @@ namespace UniCine_JulioF
         public SesionesFrm()
         {
             InitializeComponent();
-            actualizarLista();
             negocio = new Negocio();
-
+            actualizarLista();
         }
 
         private void lvSesiones_DoubleClick(object sender, EventArgs e)

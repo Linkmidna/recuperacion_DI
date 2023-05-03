@@ -16,6 +16,11 @@ namespace UniCine_JulioF
             bd = new UniCine();
         }
 
+        public Negocio (UniCine bd)
+        {
+            this.bd = bd;
+        }
+
         public List<Pelicula> ObtenerPeliculas()
         {
             return bd.Peliculas.ToList();
@@ -23,8 +28,15 @@ namespace UniCine_JulioF
 
         public void CrearPelicula(Pelicula nuevaPelicula)
         {
-            int ultimoId = bd.Peliculas.ToList().Count;
-            nuevaPelicula.PeliculaId = ultimoId;
+            Pelicula ultimaPelicula = bd.Peliculas.LastOrDefault();
+            if (ultimaPelicula==null)
+            {
+                nuevaPelicula.PeliculaId = 1;
+                bd.Peliculas.Add(nuevaPelicula);
+                bd.SaveChanges();
+                return;
+            }
+            nuevaPelicula.PeliculaId = ultimaPelicula.PeliculaId+1;
             bd.Peliculas.Add(nuevaPelicula);
             bd.SaveChanges();
         }
@@ -59,7 +71,7 @@ namespace UniCine_JulioF
         public void BorrarPelicula(int peliculaId)
         {
             var borrar = bd.Peliculas.FirstOrDefault(x => x.PeliculaId == peliculaId);
-            if (bd.Proyecciones.Where(p => p.PeliculaId.Equals(peliculaId)).ToList().Count >0 )
+            if (bd.Proyecciones.Any(p => p.PeliculaId.Equals(peliculaId)))
             {
                 throw new UniCineException("La película tiene proyecciones asociadas");
             }
@@ -76,7 +88,7 @@ namespace UniCine_JulioF
         {
             if (nuevaProyeccion.Fin !=null)
             {
-                if (nuevaProyeccion.Inicio.CompareTo(nuevaProyeccion.Fin) == 1)
+                if ((nuevaProyeccion.Inicio-nuevaProyeccion.Fin).Value.Days > 0)
                 {
                     throw new UniCineException("La fecha de fin no puede ser previa a la de inicio");
                 }
@@ -97,7 +109,7 @@ namespace UniCine_JulioF
             {
                 if (nuevaProyeccion.Fin != null)
                 {
-                    if (nuevaProyeccion.Inicio.CompareTo(nuevaProyeccion.Fin) == 1)
+                    if ((nuevaProyeccion.Inicio-nuevaProyeccion.Fin).Value.Days > 0)
                     {
                         throw new UniCineException("La fecha de fin no puede ser previa a la de inicio");
                     }
@@ -128,6 +140,15 @@ namespace UniCine_JulioF
         public void CrearSesion(Sesion nuevaSesion)
         {
 
+            Sesion ultimaSesion = bd.Sesiones.LastOrDefault();
+            if (ultimaSesion == null)
+            {
+                nuevaSesion.SesionId = 1;
+                bd.Sesiones.Add(nuevaSesion);
+                bd.SaveChanges();
+                return;
+            }
+            nuevaSesion.SesionId = ultimaSesion.SesionId + 1;
             bd.Sesiones.Add(nuevaSesion);
             bd.SaveChanges();
         }
@@ -162,8 +183,16 @@ namespace UniCine_JulioF
         public void BorrarSesion(int sesionId)
         {
             var borrar = bd.Sesiones.FirstOrDefault(x => x.SesionId == sesionId);
-            bd.Sesiones.Remove(borrar);
-            bd.SaveChanges();
+            if (borrar != null)
+            {
+                if (bd.Proyecciones.Any(p => p.SesionId == sesionId))
+                {
+                    throw new UniCineException("Hay proyecciones que dependen de esta sesión.");
+                }
+                bd.Sesiones.Remove(borrar);
+                bd.SaveChanges();
+            }
+            
         }
     }
 }
