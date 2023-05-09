@@ -44,8 +44,15 @@ namespace UniCine_JulioF
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            negocio.BorrarPelicula((int)lvPeliculas.SelectedItems[0].Tag);
-            actualizarLista();
+            try
+            {
+                negocio.BorrarPelicula((int)lvPeliculas.SelectedItems[0].Tag);
+                actualizarLista();
+            }
+            catch (UniCineException x)
+            {
+                MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK);
+            }
         }
 
         private void cmsPeliculas_Opening(object sender, CancelEventArgs e)
@@ -81,21 +88,28 @@ namespace UniCine_JulioF
 
         private void abrirPropiedades(Pelicula pelicula)
         {
-            PropiedadesPeliculasFrm propiedades = new PropiedadesPeliculasFrm(pelicula);
-            if (pelicula.PeliculaId <= 0)
+            try
             {
+                PropiedadesPeliculasFrm propiedades = new PropiedadesPeliculasFrm(pelicula);
+                if (pelicula.PeliculaId <= 0)
+                {
+                    if (propiedades.ShowDialog() == DialogResult.OK)
+                    {
+                        negocio.CrearPelicula(pelicula);
+                        actualizarLista();
+                    }
+                    return;
+                }
                 if (propiedades.ShowDialog() == DialogResult.OK)
                 {
-                    negocio.CrearPelicula(pelicula);
+                    negocio.ModificarPelicula(pelicula);
                     actualizarLista();
                 }
-                return;
-            }
-            if (propiedades.ShowDialog() == DialogResult.OK)
+            }catch(UniCineException e)
             {
-                negocio.ModificarPelicula(pelicula);
-                actualizarLista();
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK);
             }
+
         }
 
 

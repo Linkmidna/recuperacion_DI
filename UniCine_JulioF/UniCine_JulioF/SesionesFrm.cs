@@ -44,8 +44,14 @@ namespace UniCine_JulioF
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try { 
             negocio.BorrarSesion((int)lvSesiones.SelectedItems[0].Tag);
             actualizarLista();
+            }
+            catch (UniCineException x)
+            {
+                MessageBox.Show(x.Message, "Error", MessageBoxButtons.OK);
+            }
         }
         private void cmsSesiones_Opening(object sender, CancelEventArgs e)
         {
@@ -80,20 +86,27 @@ namespace UniCine_JulioF
 
         private void abrirPropiedades(Sesion sesion)
         {
-            PropiedadesSesionesFrm propiedades = new PropiedadesSesionesFrm(sesion);
-            if (sesion.SesionId <= 0)
+            try
             {
+                PropiedadesSesionesFrm propiedades = new PropiedadesSesionesFrm(sesion);
+                if (sesion.SesionId <= 0)
+                {
+                    if (propiedades.ShowDialog() == DialogResult.OK)
+                    {
+                        negocio.CrearSesion(sesion);
+                        actualizarLista();
+                    }
+                    return;
+                }
                 if (propiedades.ShowDialog() == DialogResult.OK)
                 {
-                    negocio.CrearSesion(sesion);
+                    negocio.ModificarSesion(sesion);
                     actualizarLista();
                 }
-                return;
             }
-            if (propiedades.ShowDialog() == DialogResult.OK)
+            catch (UniCineException e)
             {
-                negocio.ModificarSesion(sesion);
-                actualizarLista();
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK);
             }
         }
 

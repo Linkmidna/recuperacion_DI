@@ -99,6 +99,7 @@ namespace UniCine_JulioF
 
         private void abrirPropiedades(Proyeccion proyeccion)
         {
+            try { 
             PropiedadesProyeccionesFrm propiedades = new PropiedadesProyeccionesFrm(proyeccion);
             if (proyeccion.PeliculaId <= 0)
             {
@@ -113,6 +114,11 @@ namespace UniCine_JulioF
             {
                 negocio.ModificarProyeccion(proyeccion);
                 actualizarLista();
+            }
+            }
+            catch (UniCineException e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK);
             }
         }
 

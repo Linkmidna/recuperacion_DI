@@ -46,3 +46,11 @@ E:\CLASE\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.
 E:\CLASE\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.BuscarSesionFrm.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.BuscarPeliculaFrm.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\obj\Debug\UniCine_JulioF.BuscarSesionFrm.resources
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\Castle.Core.dll
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\Moq.dll
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\Castle.Core.xml
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\Moq.xml
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Alumno\Desktop\recuperacion_DI\UniCine_JulioF\UniCine_JulioF\bin\Debug\System.Threading.Tasks.Extensions.xml

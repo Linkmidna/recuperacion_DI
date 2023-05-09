@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniCine_JulioF", "UniCine_JulioF\UniCine_JulioF.csproj", "{65417DCD-DDC7-40F1-900C-E35A61DB9111}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniCine_UnitTest", "UniCine_UnitTest\UniCine_UnitTest.csproj", "{B3128450-40D8-4238-8555-51E984A41D22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{65417DCD-DDC7-40F1-900C-E35A61DB9111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65417DCD-DDC7-40F1-900C-E35A61DB9111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65417DCD-DDC7-40F1-900C-E35A61DB9111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3128450-40D8-4238-8555-51E984A41D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3128450-40D8-4238-8555-51E984A41D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3128450-40D8-4238-8555-51E984A41D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3128450-40D8-4238-8555-51E984A41D22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
