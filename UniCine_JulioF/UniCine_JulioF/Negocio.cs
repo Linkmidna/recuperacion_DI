@@ -11,13 +11,13 @@ namespace UniCine_JulioF
 
     public class Negocio
     {
-        private  UniCine bd;
-         public Negocio()
+        private UniCine bd;
+        public Negocio()
         {
             bd = new UniCine();
         }
 
-        public Negocio (UniCine bd)
+        public Negocio(UniCine bd)
         {
             this.bd = bd;
         }
@@ -27,42 +27,41 @@ namespace UniCine_JulioF
             return bd.Peliculas.ToList();
         }
 
-        public void CrearPelicula(Pelicula nuevaPelicula)
+        public bool CrearPelicula(Pelicula nuevaPelicula)
         {
             Pelicula ultimaPelicula = bd.Peliculas.LastOrDefault();
-            if (ultimaPelicula==null)
+            if (ultimaPelicula == null)
             {
                 nuevaPelicula.PeliculaId = 1;
                 bd.Peliculas.Add(nuevaPelicula);
                 bd.SaveChanges();
-                return;
+                return true;
             }
-            nuevaPelicula.PeliculaId = ultimaPelicula.PeliculaId+1;
+            nuevaPelicula.PeliculaId = ultimaPelicula.PeliculaId + 1;
             bd.Peliculas.Add(nuevaPelicula);
             bd.SaveChanges();
+            return true;
         }
 
         public Pelicula ObtenerPelicula(int peliculaId)
         {
-            return bd.Peliculas.FirstOrDefault(x =>  x.PeliculaId == peliculaId);
+            return bd.Peliculas.FirstOrDefault(x => x.PeliculaId == peliculaId);
         }
 
-        public void ModificarPelicula(Pelicula nuevaPelicula)
+        public bool ModificarPelicula(Pelicula nuevaPelicula)
         {
             Pelicula viejaPelicula = bd.Peliculas.FirstOrDefault(x => x.PeliculaId == nuevaPelicula.PeliculaId);
-            if (viejaPelicula != null)
+            if (bd.Proyecciones.Any(p => p.PeliculaId == nuevaPelicula.PeliculaId && DbFunctions.DiffMinutes(bd.Sesiones.FirstOrDefault(s => s.SesionId == p.SesionId).FinMax, bd.Sesiones.FirstOrDefault(s => s.SesionId == p.SesionId).Comienzo) < nuevaPelicula.Duracion))
             {
-                if( bd.Proyecciones.Any(p => p.PeliculaId == nuevaPelicula.PeliculaId && DbFunctions.DiffMinutes(bd.Sesiones.FirstOrDefault(s => s.SesionId == p.SesionId).FinMax , bd.Sesiones.FirstOrDefault(s => s.SesionId == p.SesionId).Comienzo) < nuevaPelicula.Duracion))
-                    {
-                    throw new UniCineException("No hay tiempo suficiente en las sesiones.");
-                }
-                        
-                bd.Entry(viejaPelicula).CurrentValues.SetValues(nuevaPelicula);
-                bd.SaveChanges();
+                throw new UniCineException("No hay tiempo suficiente en las sesiones.");
             }
+
+            bd.Entry(viejaPelicula).CurrentValues.SetValues(nuevaPelicula);
+            bd.SaveChanges();
+            return true;
         }
 
-        public void BorrarPelicula(int peliculaId)
+        public bool BorrarPelicula(int peliculaId)
         {
             var borrar = bd.Peliculas.FirstOrDefault(x => x.PeliculaId == peliculaId);
             if (bd.Proyecciones.Any(p => p.PeliculaId.Equals(peliculaId)))
@@ -71,18 +70,19 @@ namespace UniCine_JulioF
             }
             bd.Peliculas.Remove(borrar);
             bd.SaveChanges();
+            return true;
         }
 
-        public List<Proyeccion> ObenerProyecciones()
+        public List<Proyeccion> ObtenerProyecciones()
         {
             return bd.Proyecciones.ToList();
         }
 
-        public void CrearProyeccion(Proyeccion nuevaProyeccion)
+        public bool CrearProyeccion(Proyeccion nuevaProyeccion)
         {
-            if (nuevaProyeccion.Fin !=null)
+            if (nuevaProyeccion.Fin != null)
             {
-                if ((nuevaProyeccion.Inicio-nuevaProyeccion.Fin).Value.Days > 0)
+                if ((nuevaProyeccion.Inicio - nuevaProyeccion.Fin).Value.Days > 0)
                 {
                     throw new UniCineException("La fecha de fin no puede ser previa a la de inicio");
                 }
@@ -93,6 +93,7 @@ namespace UniCine_JulioF
             }
             bd.Proyecciones.Add(nuevaProyeccion);
             bd.SaveChanges();
+            return true;
         }
 
         public Proyeccion ObtenerProyeccion(int sesionId, int peliculaId, DateTime fechaInicio)
@@ -100,34 +101,37 @@ namespace UniCine_JulioF
             return bd.Proyecciones.FirstOrDefault(x => x.PeliculaId == peliculaId && x.SesionId == sesionId && x.Inicio == fechaInicio);
         }
 
-        public void ModificarProyeccion(Proyeccion nuevaProyeccion)
+        public bool ModificarProyeccion(Proyeccion nuevaProyeccion)
         {
             Proyeccion viejaProyeccion = bd.Proyecciones.FirstOrDefault(x => x.PeliculaId == nuevaProyeccion.PeliculaId && x.SesionId == nuevaProyeccion.SesionId && x.Inicio == nuevaProyeccion.Inicio);
-            if (viejaProyeccion != null)
+            if (nuevaProyeccion.Fin != null)
             {
-                if (nuevaProyeccion.Fin != null)
+                if ((nuevaProyeccion.Inicio - nuevaProyeccion.Fin).Value.Days > 0)
                 {
-                    if ((nuevaProyeccion.Inicio-nuevaProyeccion.Fin).Value.Days > 0)
-                    {
-                        throw new UniCineException("La fecha de fin no puede ser previa a la de inicio");
-                    }
+                    throw new UniCineException("La fecha de fin no puede ser previa a la de inicio");
                 }
-                Sesion sesion = bd.Sesiones.FirstOrDefault(x => x.SesionId == nuevaProyeccion.SesionId);
-                Pelicula pelicula = bd.Peliculas.FirstOrDefault(x => x.PeliculaId == nuevaProyeccion.PeliculaId);
-                if (sesion.FinMax.Subtract(sesion.Comienzo).Minutes < pelicula.Duracion)
-                    {
-                        throw new UniCineException("No hay tiempo suficiente en la sesion para la películas.");
-                    }
-                bd.Entry(viejaProyeccion).CurrentValues.SetValues(viejaProyeccion);
-                bd.SaveChanges();
             }
+            Sesion sesion = bd.Sesiones.FirstOrDefault(x => x.SesionId == nuevaProyeccion.SesionId);
+            Pelicula pelicula = bd.Peliculas.FirstOrDefault(x => x.PeliculaId == nuevaProyeccion.PeliculaId);
+            if (sesion.FinMax.Subtract(sesion.Comienzo).Minutes < pelicula.Duracion)
+            {
+                throw new UniCineException("No hay tiempo suficiente en la sesion para la películas.");
+            }
+            bd.Entry(viejaProyeccion).CurrentValues.SetValues(viejaProyeccion);
+            bd.SaveChanges();
+            return true;
         }
 
-        public void BorrarProyeccion(int sesionId, int peliculaId, DateTime fechaInicio)
+        public bool BorrarProyeccion(int sesionId, int peliculaId, DateTime fechaInicio)
         {
             var borrar = bd.Proyecciones.FirstOrDefault(x => x.PeliculaId == peliculaId && x.SesionId == sesionId && x.Inicio == fechaInicio);
-            bd.Proyecciones.Remove(borrar);
-            bd.SaveChanges();
+            if (borrar != null)
+            {
+                bd.Proyecciones.Remove(borrar);
+                bd.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public List<Sesion> ObtenerSesiones()
@@ -135,7 +139,7 @@ namespace UniCine_JulioF
             return bd.Sesiones.ToList();
         }
 
-        public void CrearSesion(Sesion nuevaSesion)
+        public bool CrearSesion(Sesion nuevaSesion)
         {
 
             Sesion ultimaSesion = bd.Sesiones.LastOrDefault();
@@ -144,11 +148,12 @@ namespace UniCine_JulioF
                 nuevaSesion.SesionId = 1;
                 bd.Sesiones.Add(nuevaSesion);
                 bd.SaveChanges();
-                return;
+                return true;
             }
             nuevaSesion.SesionId = ultimaSesion.SesionId + 1;
             bd.Sesiones.Add(nuevaSesion);
             bd.SaveChanges();
+            return true;
         }
 
         public Sesion ObtenerSesion(int sesionId)
@@ -156,32 +161,32 @@ namespace UniCine_JulioF
             return bd.Sesiones.FirstOrDefault(x => x.SesionId == sesionId);
         }
 
-        public void ModificarSesion(Sesion nuevaSesion)
+        public bool ModificarSesion(Sesion nuevaSesion)
         {
             Sesion viejaSesion = bd.Sesiones.FirstOrDefault(x => x.SesionId == nuevaSesion.SesionId);
             if (viejaSesion != null)
             {
-                if (bd.Proyecciones.Any(p => p.SesionId == nuevaSesion.SesionId && DbFunctions.DiffMinutes(nuevaSesion.Comienzo,nuevaSesion.FinMax) < bd.Peliculas.FirstOrDefault(x => x.PeliculaId == p.PeliculaId).Duracion))
+                if (bd.Proyecciones.Any(p => p.SesionId == nuevaSesion.SesionId && DbFunctions.DiffMinutes(nuevaSesion.Comienzo, nuevaSesion.FinMax) < bd.Peliculas.FirstOrDefault(x => x.PeliculaId == p.PeliculaId).Duracion))
                 {
                     throw new UniCineException("No hay tiempo suficiente en la sesion para las películas.");
                 }
                 bd.Entry(viejaSesion).CurrentValues.SetValues(viejaSesion);
                 bd.SaveChanges();
+                return true;
             }
+            return false;
         }
 
-        public void BorrarSesion(int sesionId)
+        public bool BorrarSesion(int sesionId)
         {
             var borrar = bd.Sesiones.FirstOrDefault(x => x.SesionId == sesionId);
-            if (borrar != null)
+            if (bd.Proyecciones.Any(p => p.SesionId == sesionId))
             {
-                if (bd.Proyecciones.Any(p => p.SesionId == sesionId))
-                {
-                    throw new UniCineException("Hay proyecciones que dependen de esta sesión.");
-                }
-                bd.Sesiones.Remove(borrar);
-                bd.SaveChanges();
+                throw new UniCineException("Hay proyecciones que dependen de esta sesión.");
             }
+            bd.Sesiones.Remove(borrar);
+            bd.SaveChanges();
+            return true;
         }
     }
 }

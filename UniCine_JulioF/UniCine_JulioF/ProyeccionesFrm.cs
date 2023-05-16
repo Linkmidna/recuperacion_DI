@@ -67,7 +67,7 @@ namespace UniCine_JulioF
         private void actualizarLista()
         {
             lvProyecciones.Items.Clear();
-            foreach (Proyeccion p in negocio.ObenerProyecciones())
+            foreach (Proyeccion p in negocio.ObtenerProyecciones())
             {
                 Dictionary<int, Object> dict = new Dictionary<int, Object>();
                 dict.Add(0, p.SesionId);

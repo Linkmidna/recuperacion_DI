@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Practicas" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpresaId" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DNI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Estudios" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ComienzoPracticas" Type="DateTime" Precision="3" />
+    <Property Name="SuperaPracticas" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="EmpresaId" />
+    </Key>
+    <Property Name="EmpresaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NIF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PersonaContacto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Convenio" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_EmpresaAlumno">
+    <End Role="Empresas" Type="Practicas.Empresa" Multiplicity="0..1" />
+    <End Role="Alumnos" Type="Practicas.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="EmpresaId" />
+      </Principal>
+      <Dependent Role="Alumnos">
+        <PropertyRef Name="EmpresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PracticasBD" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumnos" EntityType="Practicas.Alumno" />
+    <EntitySet Name="Empresas" EntityType="Practicas.Empresa" />
+    <AssociationSet Name="FK_EmpresaAlumno" Association="Self.FK_EmpresaAlumno">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Alumnos" EntitySet="Alumnos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

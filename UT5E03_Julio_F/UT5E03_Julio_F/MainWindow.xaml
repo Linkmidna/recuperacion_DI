@@ -1,0 +1,58 @@
+﻿<Window x:Class="UT5E03_Julio_F.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UT5E03_Julio_F"
+        mc:Ignorable="d"
+        Title="Gestor de eventos" Height="445" Width="515" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
+
+        <Label Content="Fecha:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtpFecha" HorizontalAlignment="Left" Margin="80,35,0,0" VerticalAlignment="Top" FirstDayOfWeek="Monday"/>
+
+        <Label Content="Hora:" HorizontalAlignment="Left" Margin="230,35,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtHora" HorizontalAlignment="Left" Margin="300,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" />
+
+        <Label Content="Aforo:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAforo" HorizontalAlignment="Left" Margin="80,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+
+        <Label Content="Promotor:" HorizontalAlignment="Left" Margin="230,65,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbPromotor" HorizontalAlignment="Left" Margin="300,65,0,0" VerticalAlignment="Top" Width="180">
+            <ComboBoxItem>Deporte</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Festejos</ComboBoxItem>
+            <ComboBoxItem>Educacion</ComboBoxItem>
+            <ComboBoxItem>Externo</ComboBoxItem>
+        </ComboBox>
+
+        <Label Content="Tipo:" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtnTodos" Content="Todos" HorizontalAlignment="Left" Margin="80,105,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtn10" Content="&lt;10" HorizontalAlignment="Left" Margin="160,105,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtn16" Content="&gt;16" HorizontalAlignment="Left" Margin="220,105,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbtn18" Content="&gt;18" HorizontalAlignment="Left" Margin="280,105,0,0" VerticalAlignment="Top"/>
+
+        <GroupBox Header="Requisitos:" HorizontalAlignment="Left" Margin="20,135,0,0" VerticalAlignment="Top" Width="460" Height="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="chbSeguridad" Grid.Column="0" Grid.Row="0" Content="Seguridad" VerticalAlignment="center" HorizontalAlignment="center"/>
+                <CheckBox x:Name="chbBar" Grid.Column="0" Grid.Row="1" Content="Bar" VerticalAlignment="center" HorizontalAlignment="center"/>
+                <CheckBox x:Name="chbMontaje" Grid.Column="1" Grid.Row="0" Content="Montaje" VerticalAlignment="center" HorizontalAlignment="center"/>
+                <CheckBox x:Name="chbSanitarios" Grid.Column="1" Grid.Row="1" Content="Sanitarios" VerticalAlignment="center" HorizontalAlignment="center"/>
+            </Grid>
+        </GroupBox>
+        
+        <Label Content="Descripción:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="20,280,0,0" VerticalAlignment="Top" Width="460" Height="80" AcceptsReturn="True" SpellCheck.IsEnabled="True" TextWrapping="Wrap"/>
+
+        <Button x:Name="btnMostrar" Content="Mostrar" HorizontalAlignment="Left" Margin="400,380,0,0" VerticalAlignment="Top" Width="80"/>
+    </Grid>
+</Window>
