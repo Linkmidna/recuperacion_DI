@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:UT5E03_Julio_F"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="BotonRojo">
+                <Setter Property="Background" Value="Red" />
+            </Style>
+
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            </Style>
+            <Style TargetType="{x:Type Control}">
+                <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

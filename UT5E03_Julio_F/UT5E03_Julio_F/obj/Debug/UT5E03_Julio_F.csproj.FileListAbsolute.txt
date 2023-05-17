@@ -4,10 +4,13 @@ C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\bin\Debug\
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F.csproj.AssemblyReference.cache
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F.csproj.SuggestedBindingRedirects.cache
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\MainWindow.g.cs
+C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\ResumenWnd.g.cs
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\App.g.cs
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F_MarkupCompile.cache
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F_MarkupCompile.lref
+C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\App.baml
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\MainWindow.baml
+C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\ResumenWnd.baml
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F.g.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F.Properties.Resources.resources
 C:\Users\Alumno\Desktop\recuperacion_DI\UT5E03_Julio_F\UT5E03_Julio_F\obj\Debug\UT5E03_Julio_F.csproj.GenerateResource.cache

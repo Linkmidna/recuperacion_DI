@@ -53,6 +53,6 @@
         <Label Content="Descripción:" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtDescripcion" HorizontalAlignment="Left" Margin="20,280,0,0" VerticalAlignment="Top" Width="460" Height="80" AcceptsReturn="True" SpellCheck.IsEnabled="True" TextWrapping="Wrap"/>
 
-        <Button x:Name="btnMostrar" Content="Mostrar" HorizontalAlignment="Left" Margin="400,380,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="btnMostrar" Content="Mostrar" HorizontalAlignment="Left" Margin="400,380,0,0" VerticalAlignment="Top" Width="80" Click="btnMostrar_Click"/>
     </Grid>
 </Window>

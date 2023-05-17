@@ -20,9 +20,44 @@ namespace UT5E03_Julio_F
     /// </summary>
     public partial class MainWindow : Window
     {
+        Evento evento;
         public MainWindow()
         {
             InitializeComponent();
+            evento = new Evento();
+        }
+
+        private void btnMostrar_Click(object sender, RoutedEventArgs e)
+        {
+            if (validarDatos())
+            {
+                rellenarEvento();
+                Window resumen = new ResumenWnd(evento);
+                if (resumen.ShowDialog() == true)
+                {
+                    MessageBox.Show("Has dado a si");
+                    return;
+                }
+                MessageBox.Show("Has dado a no");
+            }
+        }
+
+        private bool validarDatos()
+        {
+            return true;
+        }
+        private void rellenarEvento()
+        {
+            evento.Nombre = txtNombre.Text;
+            evento.Fecha = dtpFecha.DisplayDate;
+            evento.Hora = DateTime.Parse(txtHora.Text);
+            evento.Aforo = int.Parse(txtAforo.Text);
+            //evento.Tipo = tipo; lo de los radiobuttons y el valor
+            evento.Descripcion = txtDescripcion.Text;
+            evento.Seguridad = chbSeguridad.IsChecked.Value;
+            evento.Bar = chbBar.IsChecked.Value;
+            evento.Montaje = chbMontaje.IsChecked.Value;
+            evento.Sanitarios = chbSanitarios.IsChecked.Value;
         }
     }
 }
