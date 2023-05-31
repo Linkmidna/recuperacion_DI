@@ -121,7 +121,5 @@ namespace UniCine_JulioF
                 MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK);
             }
         }
-
-
     }
 }
