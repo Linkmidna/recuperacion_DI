@@ -26,36 +26,31 @@ namespace UT5E04
             InitializeComponent();
             negocio = new Negocio();
             cargarDatos();
-
-            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvReservas.Items);
-            vista.Filter = FiltroVista;
-            lblRegistros.Content = lvReservas.Items.Count + " registros";
         }
-        
 
-    private bool FiltroVista(object item)
-    {
-        if (string.IsNullOrEmpty(this.txtFiltro.Text))
+        private bool FiltroVista(object item)
         {
-            return true;
+            if (string.IsNullOrEmpty(this.txtFiltro.Text))
+            {
+                return true;
+            }
+            Reserva reserva = item as Reserva;
+            return reserva.Nombre.Contains(this.txtFiltro.Text);
         }
-        Reserva reserva = item as Reserva;
-        return reserva.Nombre.Contains(this.txtFiltro.Text);
-    }
 
-    private void ListView_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void lvReservas_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             if (lvReservas.SelectedItems.Count > 0)
             {
-                ContextMenu menuSeleccionado = this.FindResource("ctmSeleccionado") as ContextMenu;
-                menuSeleccionado.PlacementTarget = sender as Label;
-                menuSeleccionado.IsOpen = true;
+                cmiBorrar.IsEnabled = true;
+                cmiModificar.IsEnabled = true;
+                cmiConfirmar.IsEnabled = true;
                 return;
             }
 
-            ContextMenu menuSinSeleccionar = this.FindResource("ctmSinSeleccionar") as ContextMenu;
-            menuSinSeleccionar.PlacementTarget = sender as Label;
-            menuSinSeleccionar.IsOpen = true;
+            cmiBorrar.IsEnabled = false;
+            cmiModificar.IsEnabled = false;
+            cmiConfirmar.IsEnabled = false;
             return;
         }
 
@@ -67,7 +62,6 @@ namespace UT5E04
             {
                 negocio.CrearReserva(reserva);
                 cargarDatos();
-                return;
             }
         }
 
@@ -77,7 +71,7 @@ namespace UT5E04
             vista.Filter = FiltroVista;
 
             lblRegistros.Content = lvReservas.Items.Count + " registros";
-            if (txtFiltro.Text.Length==0)
+            if (txtFiltro.Text.Length == 0)
             {
                 lblFiltro.Content = "Sin filtro";
                 return;
@@ -93,15 +87,66 @@ namespace UT5E04
                 propiedades.ShowDialog();
                 cargarDatos();
             }
-            
+
         }
+        private void cmiNueva_Click(object sender, RoutedEventArgs e)
+        {
+            Reserva reserva = new Reserva();
+            Window propiedades = new Propiedades(reserva);
+            if (propiedades.ShowDialog() == true)
+            {
+                negocio.CrearReserva(reserva);
+                cargarDatos();
+            }
+        }
+        private void cmiModificar_Click(object sender, RoutedEventArgs e)
+        {
+
+            Window propiedades = new Propiedades((Reserva)lvReservas.SelectedItem);
+            propiedades.ShowDialog();
+            cargarDatos();
+        }
+        private void cmiBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            string messageBoxText = "¿Deseas eliminar la reserva?";
+            string caption = "Eliminar reserva";
+            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            MessageBoxImage icon = MessageBoxImage.Question;
+            MessageBoxResult result;
+
+            result = MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Reserva reserva = (Reserva)lvReservas.SelectedItem;
+                negocio.BorrarReserva(reserva.ReservaId);
+                cargarDatos();
+            }
+
+        }
+        private void cmiConfirmar_Click(object sender, RoutedEventArgs e)
+        {
+            Reserva reserva = (Reserva)lvReservas.SelectedItem;
+            if (reserva.Asiste)
+            {
+                reserva.Asiste = false;
+                cargarDatos();
+                return;
+            }
+            reserva.Asiste = true;
+            cargarDatos();
+            return;
+        }
+
         private void cargarDatos()
         {
             lvReservas.Items.Clear();
-            foreach(Reserva r in negocio.ObtenerReservas())
+            foreach (Reserva r in negocio.ObtenerReservas())
             {
                 lvReservas.Items.Add(r);
             }
+            lblRegistros.Content = lvReservas.Items.Count + " registros";
         }
+
     }
 }

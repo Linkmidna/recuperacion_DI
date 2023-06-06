@@ -8,7 +8,7 @@ using System.Windows.Data;
 
 namespace UT5E04
 {
-    internal class AsisteConverter : IValueConverter
+    public class AsisteConverter : IValueConverter
     {
         
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
